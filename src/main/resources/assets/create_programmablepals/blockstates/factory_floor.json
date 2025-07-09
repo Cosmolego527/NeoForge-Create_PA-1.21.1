@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "create_programmablepals:block/factory_floor"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:andesite_alloy"
+    },
+    "C": {
+      "item": "minecraft:clock"
+    },
+    "E": {
+      "item": "create:electron_tube"
+    },
+    "P": {
+      "item": "create:precision_mechanism"
+    }
+  },
+  "pattern": [
+    "E E",
+    "ACA",
+    " P "
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_programmablepals:automaton_processor"
+  }
+}

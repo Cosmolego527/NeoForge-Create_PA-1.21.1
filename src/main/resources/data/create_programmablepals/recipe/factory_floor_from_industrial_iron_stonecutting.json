@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "create:industrial_iron_block"
+  },
+  "result": {
+    "count": 1,
+    "id": "create_programmablepals:factory_floor"
+  }
+
+}
