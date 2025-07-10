@@ -3,6 +3,7 @@ package com.cosmolego527.create_pp;
 import com.cosmolego527.create_pp.block.ModBlocks;
 import com.cosmolego527.create_pp.item.ModCreativeModeTabs;
 import com.cosmolego527.create_pp.item.ModItems;
+import com.cosmolego527.create_pp.sound.ModSounds;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
@@ -44,6 +45,7 @@ public class CreatePP {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModSounds.register(modEventBus);
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 

@@ -15,4 +15,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(ModItems.AUTOMATON_PROCESSOR.get());
     }
+
+
 }

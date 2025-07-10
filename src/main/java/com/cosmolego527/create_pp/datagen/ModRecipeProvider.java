@@ -10,9 +10,12 @@ import com.simibubi.create.CreateBuildInfo;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 import java.util.List;
@@ -33,6 +36,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("I I")
                 .define('I', Items.IRON_INGOT)
                 .unlockedBy("has_iron", has(Items.IRON_INGOT)).save(recipeOutput);
+        stairBuilder(ModBlocks.FACTORY_FLOOR_STAIRS, Ingredient.of(ModBlocks.FACTORY_FLOOR))
+                .unlockedBy("has_factory_floor", has(ModBlocks.FACTORY_FLOOR)).save(recipeOutput);
+        slabBuilder(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR_SLAB, Ingredient.of(ModBlocks.FACTORY_FLOOR))
+                .unlockedBy("has_factory_floor", has(ModBlocks.FACTORY_FLOOR)).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AUTOMATON_PROCESSOR.get())
                 .pattern("E E")
@@ -44,12 +51,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('E', AllItems.ELECTRON_TUBE)
                 .unlockedBy("has_precision_mechanism", has(AllItems.PRECISION_MECHANISM)).save(recipeOutput);
 
-        stonecutterResultFromBase(recipeOutput, RecipeCategory.MISC, AllBlocks.INDUSTRIAL_IRON_BLOCK, ModBlocks.FACTORY_FLOOR);
-        stonecutterResultFromBase(recipeOutput, RecipeCategory.MISC, ModBlocks.FACTORY_FLOOR, AllBlocks.INDUSTRIAL_IRON_BLOCK);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.FACTORY_FLOOR), RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR_SLAB, 2)
+                        .unlockedBy("has_factory_floor", has(ModBlocks.FACTORY_FLOOR))
+                        .save(recipeOutput, "factory_floor_slab_from_factory_floor_stonecutting");
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.FACTORY_FLOOR),RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR_STAIRS)
+                        .unlockedBy("has_factory_floor", has(ModBlocks.FACTORY_FLOOR))
+                        .save(recipeOutput, "factory_floor_stairs_from_factory_floor_stonecutting");
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.FACTORY_FLOOR_STAIRS),RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR)
+                        .unlockedBy("has_factory_floor_stairs", has(ModBlocks.FACTORY_FLOOR_STAIRS))
+                        .save(recipeOutput, "factory_floor_from_factory_floor_stairs_stonecutting");
 
 
     }
-
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
                                       float pExperience, int pCookingTIme, String pGroup) {

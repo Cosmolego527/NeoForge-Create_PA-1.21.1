@@ -2,6 +2,8 @@
   "item.create_programmablepals.automaton_processor" : "Automaton Processor",
 
   "block.create_programmablepals.factory_floor": "Factory Floor",
+  "block.create_programmablepals.factory_floor_stairs": "Factory Floor Stairs",
+  "block.create_programmablepals.factory_floor_slab": "Factory Floor Slab",
 
   "creativetab.create_programmablepals.create_pp_items": "Create: Programmable Pals"
 }

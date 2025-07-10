@@ -22,6 +22,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         dropSelf(ModBlocks.FACTORY_FLOOR.get());
+
+        dropSelf(ModBlocks.FACTORY_FLOOR_STAIRS.get());
+        add(ModBlocks.FACTORY_FLOOR_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.FACTORY_FLOOR_SLAB.get()));
     }
 
     @Override
