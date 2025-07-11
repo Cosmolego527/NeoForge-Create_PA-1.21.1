@@ -3,7 +3,6 @@ package com.cosmolego527.create_pp.item;
 import com.cosmolego527.create_pp.CreatePP;
 import com.cosmolego527.create_pp.block.ModBlocks;
 import com.simibubi.create.Create;
-import net.minecraft.client.gui.components.tabs.Tab;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -25,6 +24,18 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.create_programmablepals.create_pp_items"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.AUTOMATON_PROCESSOR);
+
+                        output.accept(ModItems.PROGRAMMABLE_PAL_BOX);
+
+                        output.accept(ModItems.COLORED_TAPE_BOOL);
+                        output.accept(ModItems.COLORED_TAPE_INT);
+                        output.accept(ModItems.COLORED_TAPE_STRING);
+                        output.accept(ModItems.COLORED_TAPE_VOID);
+                        output.accept(ModItems.COLORED_TAPE_);
+
+                        output.accept(ModItems.CONCLUSES_MUSIC_DISC);
+                        output.accept(ModItems.SESULCNOC_MUSIC_DISC);
+
 
                         output.accept(ModBlocks.FACTORY_FLOOR);
                         output.accept(ModBlocks.FACTORY_FLOOR_STAIRS);

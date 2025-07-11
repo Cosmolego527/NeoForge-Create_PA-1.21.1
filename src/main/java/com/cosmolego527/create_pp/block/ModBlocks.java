@@ -24,12 +24,14 @@ public class ModBlocks {
             () -> new WrenchableBlock(BlockBehaviour.Properties.of()
                     .strength(4f)
                     .requiresCorrectToolForDrops()
-                    .sound(SoundType.HEAVY_CORE)));
+                    .sound(SoundType.NETHERITE_BLOCK)));
     public static final DeferredBlock<StairBlock> FACTORY_FLOOR_STAIRS = registerBlock("factory_floor_stairs",
             () -> new WrenchableStairBlock(ModBlocks.FACTORY_FLOOR.get().defaultBlockState(),
-                    BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.HEAVY_CORE)));
+                    BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
     public static final DeferredBlock<SlabBlock> FACTORY_FLOOR_SLAB = registerBlock("factory_floor_slab",
-            () -> new WrenchableSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().sound(SoundType.HEAVY_CORE)));
+            () -> new WrenchableSlabBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
+
+
 
 
 

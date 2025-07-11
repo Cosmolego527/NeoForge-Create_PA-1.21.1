@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "create_programmablepals:concluses_music_disc"
+    }
+  ],
+  "results": [
+    {
+      "id": "create_programmablepals:sesulcnoc_music_disc"
+    }
+  ]
+}

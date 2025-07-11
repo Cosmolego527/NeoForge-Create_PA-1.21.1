@@ -1,0 +1,18 @@
+{
+  "concluses": {
+    "sounds": [
+      {
+        "name": "create_programmablepals:concluses",
+        "stream": true
+      }
+    ]
+  },
+  "sesulcnoc" : {
+    "sounds": [
+      {
+        "name": "create_programmablepals:sesulcnoc",
+        "stream": true
+      }
+    ]
+  }
+}

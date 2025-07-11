@@ -1,10 +1,14 @@
 package com.cosmolego527.create_pp;
 
 import com.cosmolego527.create_pp.block.ModBlocks;
+import com.cosmolego527.create_pp.entity.ModEntities;
+import com.cosmolego527.create_pp.entity.client.ProgrammablePalRenderer;
 import com.cosmolego527.create_pp.item.ModCreativeModeTabs;
 import com.cosmolego527.create_pp.item.ModItems;
 import com.cosmolego527.create_pp.sound.ModSounds;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -46,6 +50,9 @@ public class CreatePP {
         ModBlocks.register(modEventBus);
 
         ModSounds.register(modEventBus);
+
+        ModEntities.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -71,5 +78,14 @@ public class CreatePP {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
 
+    }
+
+    @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
+    public static class ClientModEvents {
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event){
+
+            EntityRenderers.register(ModEntities.PROGRAMMABLE_PAL.get(), ProgrammablePalRenderer::new);
+        }
     }
 }

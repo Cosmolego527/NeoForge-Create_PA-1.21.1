@@ -7,6 +7,7 @@ import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.Create;
 import com.simibubi.create.CreateBuildInfo;
+import com.simibubi.create.content.kinetics.deployer.DeployerApplicationRecipe;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -53,13 +54,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.FACTORY_FLOOR), RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR_SLAB, 2)
                         .unlockedBy("has_factory_floor", has(ModBlocks.FACTORY_FLOOR))
-                        .save(recipeOutput, "factory_floor_slab_from_factory_floor_stonecutting");
+                        .save(recipeOutput, "create_programmablepals:factory_floor_slab_from_factory_floor_stonecutting");
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.FACTORY_FLOOR),RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR_STAIRS)
                         .unlockedBy("has_factory_floor", has(ModBlocks.FACTORY_FLOOR))
-                        .save(recipeOutput, "factory_floor_stairs_from_factory_floor_stonecutting");
+                        .save(recipeOutput, "create_programmablepals:factory_floor_stairs_from_factory_floor_stonecutting");
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.FACTORY_FLOOR_STAIRS),RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR)
                         .unlockedBy("has_factory_floor_stairs", has(ModBlocks.FACTORY_FLOOR_STAIRS))
-                        .save(recipeOutput, "factory_floor_from_factory_floor_stairs_stonecutting");
+                        .save(recipeOutput, "create_programmablepals:factory_floor_from_factory_floor_stairs_stonecutting");
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(AllBlocks.INDUSTRIAL_IRON_BLOCK),RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR)
+                        .unlockedBy("has_industrial_iron", has(AllBlocks.INDUSTRIAL_IRON_BLOCK))
+                        .save(recipeOutput, "create_programmablepals:factory_floor_from_industrial_iron_stonecutting");
 
 
     }

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_factory_floor": {
+    "has_factory_floor_stairs": {
       "conditions": {
         "items": [
           {
-            "items": "create_programmablepals:factory_floor"
+            "items": "create_programmablepals:factory_floor_stairs"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:factory_floor_stairs_from_factory_floor_stonecutting"
+        "recipe": "create_programmablepals:factory_floor_from_factory_floor_stairs_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_factory_floor"
+      "has_factory_floor_stairs"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:factory_floor_stairs_from_factory_floor_stonecutting"
+      "create_programmablepals:factory_floor_from_factory_floor_stairs_stonecutting"
     ]
   }
 }

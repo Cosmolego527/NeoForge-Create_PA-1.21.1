@@ -13,8 +13,21 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+
         basicItem(ModItems.AUTOMATON_PROCESSOR.get());
+
+        basicItem(ModItems.COLORED_TAPE_BOOL.get());
+        basicItem(ModItems.COLORED_TAPE_INT.get());
+        basicItem(ModItems.COLORED_TAPE_STRING.get());
+        basicItem(ModItems.COLORED_TAPE_VOID.get());
+        basicItem(ModItems.COLORED_TAPE_.get());
+
+        basicItem(ModItems.CONCLUSES_MUSIC_DISC.get());
+        basicItem(ModItems.SESULCNOC_MUSIC_DISC.get());
+
+        withExistingParent(ModItems.PROGRAMMABLE_PAL_BOX.getId().getPath(), mcLoc("item/template_spawn_egg"));
     }
+
 
 
 }
