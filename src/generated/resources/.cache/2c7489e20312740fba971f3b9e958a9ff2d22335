@@ -1,7 +1,7 @@
-// 1.21.1	2025-07-10T22:38:17.5956572	Item Models: create_programmablepals
+// 1.21.1	2025-07-11T22:30:50.5452624	Item Models: create_programmablepals
 aa5193ed340f5ade97a6d947c5eac55950051b07 assets/create_programmablepals/models/item/automaton_processor.json
-a676055eabd78413baebe08609e3650c50a2c8c4 assets/create_programmablepals/models/item/colored_tape_.json
 be3643e5684d97e237bfcace9a15809f4262ba56 assets/create_programmablepals/models/item/colored_tape_bool.json
+eba14109c80864a6824b4968d67988a70584a90b assets/create_programmablepals/models/item/colored_tape_float.json
 78b0a1f4aaadeb5e63646071f8299eaffd148d33 assets/create_programmablepals/models/item/colored_tape_int.json
 7b5eb2f98cf180dbd717afe9d39da0e8ef037073 assets/create_programmablepals/models/item/colored_tape_string.json
 dda7a25a2c34b5dce8305d1e14486d0e30cf8fec assets/create_programmablepals/models/item/colored_tape_void.json

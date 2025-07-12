@@ -20,7 +20,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.COLORED_TAPE_INT.get());
         basicItem(ModItems.COLORED_TAPE_STRING.get());
         basicItem(ModItems.COLORED_TAPE_VOID.get());
-        basicItem(ModItems.COLORED_TAPE_.get());
+        basicItem(ModItems.COLORED_TAPE_FLOAT.get());
 
         basicItem(ModItems.CONCLUSES_MUSIC_DISC.get());
         basicItem(ModItems.SESULCNOC_MUSIC_DISC.get());

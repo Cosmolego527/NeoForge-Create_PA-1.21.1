@@ -2,10 +2,11 @@
   "item.create_programmablepals.automaton_processor" : "Automaton Processor",
   "item.create_programmablepals.programmable_pal_box": "Programmable Pal Box",
 
-  "item.create_programmablepals.colored_tape_void": "Void Function Tape",
-  "item.create_programmablepals.colored_tape_int": "Integer Function Tape",
-  "item.create_programmablepals.colored_tape_bool": "Boolean Function Tape",
-  "item.create_programmablepals.colored_tape_string": "String Function Tape",
+  "item.create_programmablepals.colored_tape_void": "§8Void§r Function Tape",
+  "item.create_programmablepals.colored_tape_int": "§cInteger§r Function Tape",
+  "item.create_programmablepals.colored_tape_bool": "§2Boolean§r Function Tape",
+  "item.create_programmablepals.colored_tape_string": "§6String§r Function Tape",
+  "item.create_programmablepals.colored_tape_": "§4NULL§r Function Tape",
 
   "item.create_programmablepals.concluses_music_disc": "Concluses Music Disc",
   "item.create_programmablepals.concluses_music_disc.desc": "falsertaine - Concluses",

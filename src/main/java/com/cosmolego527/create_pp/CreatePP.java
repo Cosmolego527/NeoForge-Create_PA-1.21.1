@@ -1,12 +1,22 @@
 package com.cosmolego527.create_pp;
 
 import com.cosmolego527.create_pp.block.ModBlocks;
+import com.cosmolego527.create_pp.datagen.CreatePPRegistrate;
 import com.cosmolego527.create_pp.entity.ModEntities;
 import com.cosmolego527.create_pp.entity.client.ProgrammablePalRenderer;
 import com.cosmolego527.create_pp.item.ModCreativeModeTabs;
 import com.cosmolego527.create_pp.item.ModItems;
 import com.cosmolego527.create_pp.sound.ModSounds;
+import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.foundation.item.ItemDescription;
+import com.simibubi.create.foundation.item.KineticStats;
+import com.simibubi.create.foundation.item.TooltipModifier;
+import net.createmod.catnip.lang.FontHelper;
+import net.createmod.catnip.lang.LangBuilder;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slf4j.Logger;
@@ -33,6 +43,9 @@ public class CreatePP {
     public static final String MOD_ID = "create_programmablepals";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
+
+    private static final StackWalker STACK_WALKER = StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE);
+
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public CreatePP(IEventBus modEventBus, ModContainer modContainer) {
@@ -53,6 +66,9 @@ public class CreatePP {
 
         ModEntities.register(modEventBus);
 
+        ModMenuTypes.register();
+        ModDataComponents.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -66,14 +82,15 @@ public class CreatePP {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
-            event.accept(ModItems.AUTOMATON_PROCESSOR);
-        }
-        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
-            event.accept(ModBlocks.FACTORY_FLOOR);
-        }
+
     }
 
+    private static final CreatePPRegistrate REGISTRATE = CreatePPRegistrate.create(MOD_ID)
+            .defaultCreativeTab((ResourceKey<CreativeModeTab>) null)
+            .setToolTipModifierFactory(item ->
+                    new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
+                            .andThen(TooltipModifier.mapNull(KineticStats.create(item)))
+            );
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
@@ -87,5 +104,19 @@ public class CreatePP {
 
             EntityRenderers.register(ModEntities.PROGRAMMABLE_PAL.get(), ProgrammablePalRenderer::new);
         }
+    }
+
+    public static LangBuilder lang() {
+        return new LangBuilder(MOD_ID);
+    }
+
+    public static ResourceLocation asResource(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    }
+
+    public static CreatePPRegistrate registrate() {
+        if (!STACK_WALKER.getCallerClass().getPackageName().startsWith("com.cosmolego527.create_pp"))
+            throw new UnsupportedOperationException("Other mods are not permitted to use create: programmable pal's registrate instance.");
+        return REGISTRATE;
     }
 }

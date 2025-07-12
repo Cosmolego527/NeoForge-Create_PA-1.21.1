@@ -31,7 +31,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.COLORED_TAPE_INT);
                         output.accept(ModItems.COLORED_TAPE_STRING);
                         output.accept(ModItems.COLORED_TAPE_VOID);
-                        output.accept(ModItems.COLORED_TAPE_);
+                        output.accept(ModItems.COLORED_TAPE_FLOAT);
 
                         output.accept(ModItems.CONCLUSES_MUSIC_DISC);
                         output.accept(ModItems.SESULCNOC_MUSIC_DISC);
