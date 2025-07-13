@@ -1,13 +1,12 @@
 package com.cosmolego527.create_pp.item.logistics.functions;
 
-import com.cosmolego527.create_pp.ModDataComponents;
+import com.cosmolego527.create_pp.ModMenuTypes;
+import com.cosmolego527.create_pp.component.ModDataComponents;
 import com.cosmolego527.create_pp.item.ModItems;
 import com.simibubi.create.AllDataComponents;
-import com.simibubi.create.AllItems;
 import com.simibubi.create.AllKeys;
 import com.simibubi.create.content.logistics.box.PackageItem;
 import com.simibubi.create.content.logistics.filter.*;
-import com.simibubi.create.content.logistics.item.filter.attribute.ItemAttribute;
 import com.simibubi.create.foundation.item.ItemHelper;
 import com.simibubi.create.foundation.utility.CreateLang;
 import net.minecraft.ChatFormatting;
@@ -64,81 +63,6 @@ public class FunctionTapeItem extends Item implements MenuProvider, SupportsItem
         return use(context.getLevel(), context.getPlayer(), context.getHand()).getResult();
     }
     @Override
-    @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
-        if (AllKeys.shiftDown())
-            return;
-        List<Component> makeSummary = makeSummary(stack);
-        if (makeSummary.isEmpty())
-            return;
-        tooltip.add(CommonComponents.SPACE);
-        tooltip.addAll(makeSummary);
-    }
-    private List<Component> makeSummary(ItemStack filter) {
-        List<Component> list = new ArrayList<>();
-        if (filter.isComponentsPatchEmpty())
-            return list;
-
-
-
-        if (type == FunctionType.VOID) {
-            ItemStackHandler filterItems = getFilterItems(filter);
-            boolean blacklist = filter.getOrDefault(AllDataComponents.FILTER_ITEMS_BLACKLIST, false);
-
-            list.add((blacklist ? CreateLang.translateDirect("gui.filter.deny_list")
-                    : CreateLang.translateDirect("gui.filter.allow_list")).withStyle(ChatFormatting.GOLD));
-            int count = 0;
-            for (int i = 0; i < filterItems.getSlots(); i++) {
-                if (count > 3) {
-                    list.add(Component.literal("- ...")
-                            .withStyle(ChatFormatting.DARK_GRAY));
-                    break;
-                }
-
-                ItemStack filterStack = filterItems.getStackInSlot(i);
-                if (filterStack.isEmpty())
-                    continue;
-                list.add(Component.literal("- ")
-                        .append(filterStack.getHoverName())
-                        .withStyle(ChatFormatting.GRAY));
-                count++;
-            }
-
-            if (count == 0)
-                return Collections.emptyList();
-        }
-
-        if (type == FunctionType.STRING) {
-            String address = PackageItem.getAddress(filter);
-            if (!address.isBlank())
-                list.add(CreateLang.text("-> ")
-                        .style(ChatFormatting.GRAY)
-                        .add(CreateLang.text(address)
-                                .style(ChatFormatting.GOLD))
-                        .component());
-        }
-        if (type == FunctionType.VOID) {
-            String address = PackageItem.getAddress(filter);
-            if (!address.isBlank())
-                list.add(CreateLang.text("-> ")
-                        .style(ChatFormatting.GRAY)
-                        .add(CreateLang.text(address)
-                                .style(ChatFormatting.GOLD))
-                        .component());
-        }
-        if (type == FunctionType.BOOL) {
-            String address = PackageItem.getAddress(filter);
-            if (!address.isBlank())
-                list.add(CreateLang.text("-> ")
-                        .style(ChatFormatting.GRAY)
-                        .add(CreateLang.text(address)
-                                .style(ChatFormatting.GOLD))
-                        .component());
-        }
-        return list;
-    }
-
-    @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack heldItem = player.getItemInHand(hand);
 
@@ -162,7 +86,7 @@ public class FunctionTapeItem extends Item implements MenuProvider, SupportsItem
         if (type == FunctionType.STRING)
             return PackageFilterMenu.create(id, inv, heldItem);
         if (type == FunctionType.VOID)
-            return PackageFilterMenu.create(id, inv, heldItem);
+            return new VoidFunctionMenu(, inv, heldItem);
         return null;
     }
 
@@ -184,35 +108,7 @@ public class FunctionTapeItem extends Item implements MenuProvider, SupportsItem
         return newInv;
     }
 
-    public static boolean testDirect(ItemStack filter, ItemStack stack, boolean matchNBT) {
-        if (matchNBT) {
-            if (PackageItem.isPackage(filter) && PackageItem.isPackage(stack))
-                return doPackagesHaveSameData(filter, stack);
 
-            return ItemStack.isSameItemSameComponents(filter, stack);
-        }
-
-        if (PackageItem.isPackage(filter) && PackageItem.isPackage(stack))
-            return true;
-
-        return ItemHelper.sameItem(filter, stack);
-    }
-
-    public static boolean doPackagesHaveSameData(@NotNull ItemStack a, @NotNull ItemStack b) {
-        if (a.isEmpty())
-            return false;
-        if (!ItemStack.isSameItemSameComponents(a, b))
-            return false;
-        for (TypedDataComponent<?> component : a.getComponents()) {
-            DataComponentType<?> type = component.type();
-            if (type.equals(AllDataComponents.PACKAGE_ORDER_DATA) ||
-                    type.equals(AllDataComponents.PACKAGE_ORDER_CONTEXT))
-                continue;
-            if (!Objects.equals(a.get(type), b.get(type)))
-                return false;
-        }
-        return true;
-    }
 
     @Override
     public DataComponentType<?> getComponentType() {
@@ -220,7 +116,7 @@ public class FunctionTapeItem extends Item implements MenuProvider, SupportsItem
             case BOOL -> AllDataComponents.FILTER_ITEMS;
             case INT -> AllDataComponents.ATTRIBUTE_FILTER_MATCHED_ATTRIBUTES;
             case STRING -> AllDataComponents.PACKAGE_ADDRESS;
-            case VOID -> AllDataComponents.PACKAGE_ADDRESS;
+            case VOID -> ModDataComponents.VOID_FUNCTION_TAG;
 
         };
     }

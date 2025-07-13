@@ -1,5 +1,7 @@
 {
   "values": [
-    "create_programmablepals:factory_floor"
+    "create_programmablepals:factory_floor",
+    "create_programmablepals:factory_floor_stairs",
+    "create_programmablepals:factory_floor_slab"
   ]
 }

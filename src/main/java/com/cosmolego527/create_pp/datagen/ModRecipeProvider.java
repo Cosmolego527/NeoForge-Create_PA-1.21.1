@@ -64,6 +64,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(AllBlocks.INDUSTRIAL_IRON_BLOCK),RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR)
                         .unlockedBy("has_industrial_iron", has(AllBlocks.INDUSTRIAL_IRON_BLOCK))
                         .save(recipeOutput, "create_programmablepals:factory_floor_from_industrial_iron_stonecutting");
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.IRON_INGOT),RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR, 2)
+                        .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
+                        .save(recipeOutput, "create_programmablepals:factory_floor_from_iron_ingot_stonecutting");
 
 
     }

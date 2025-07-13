@@ -1,24 +1,15 @@
 package com.cosmolego527.create_pp;
 
 import com.cosmolego527.create_pp.block.ModBlocks;
-import com.cosmolego527.create_pp.datagen.CreatePPRegistrate;
+import com.cosmolego527.create_pp.component.ModDataComponents;
 import com.cosmolego527.create_pp.entity.ModEntities;
 import com.cosmolego527.create_pp.entity.client.ProgrammablePalRenderer;
 import com.cosmolego527.create_pp.item.ModCreativeModeTabs;
 import com.cosmolego527.create_pp.item.ModItems;
 import com.cosmolego527.create_pp.sound.ModSounds;
-import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.simibubi.create.foundation.item.ItemDescription;
-import com.simibubi.create.foundation.item.KineticStats;
-import com.simibubi.create.foundation.item.TooltipModifier;
-import net.createmod.catnip.lang.FontHelper;
 import net.createmod.catnip.lang.LangBuilder;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -66,7 +57,8 @@ public class CreatePP {
 
         ModEntities.register(modEventBus);
 
-        ModMenuTypes.register();
+        ModMenuTypes.register(modEventBus);
+
         ModDataComponents.register(modEventBus);
 
         // Register the item to a creative tab
@@ -85,12 +77,6 @@ public class CreatePP {
 
     }
 
-    private static final CreatePPRegistrate REGISTRATE = CreatePPRegistrate.create(MOD_ID)
-            .defaultCreativeTab((ResourceKey<CreativeModeTab>) null)
-            .setToolTipModifierFactory(item ->
-                    new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
-                            .andThen(TooltipModifier.mapNull(KineticStats.create(item)))
-            );
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
@@ -114,9 +100,4 @@ public class CreatePP {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 
-    public static CreatePPRegistrate registrate() {
-        if (!STACK_WALKER.getCallerClass().getPackageName().startsWith("com.cosmolego527.create_pp"))
-            throw new UnsupportedOperationException("Other mods are not permitted to use create: programmable pal's registrate instance.");
-        return REGISTRATE;
-    }
 }

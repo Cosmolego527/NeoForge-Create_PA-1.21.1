@@ -1,14 +1,9 @@
 package com.cosmolego527.create_pp.item;
 
 import com.cosmolego527.create_pp.CreatePP;
-import com.cosmolego527.create_pp.datagen.CreatePPRegistrate;
 import com.cosmolego527.create_pp.entity.ModEntities;
 import com.cosmolego527.create_pp.item.logistics.functions.FunctionTapeItem;
 import com.cosmolego527.create_pp.sound.ModSounds;
-import com.simibubi.create.Create;
-import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.tterrag.registrate.Registrate;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
@@ -16,7 +11,6 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems {
-    private static final CreatePPRegistrate REGISTRATE = CreatePP.registrate();
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CreatePP.MOD_ID);
 
     public static final DeferredItem<Item> AUTOMATON_PROCESSOR = ITEMS.register("automaton_processor",
@@ -47,7 +41,7 @@ public class ModItems {
 
 
     public static final DeferredItem<Item> PROGRAMMABLE_PAL_BOX = ITEMS.register("programmable_pal_box",
-            ()-> new DeferredSpawnEggItem(ModEntities.PROGRAMMABLE_PAL, 0x5b5b5b, 0x744700,
+            ()-> new DeferredSpawnEggItem(ModEntities.PROGRAMMABLE_PAL, 0xFFFFFF, 0xFFFFFF,
                     new Item.Properties()));
 
 

@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-11T22:30:50.5452624	Item Models: create_programmablepals
+// 1.21.1	2025-07-12T15:51:22.6232407	Item Models: create_programmablepals
 aa5193ed340f5ade97a6d947c5eac55950051b07 assets/create_programmablepals/models/item/automaton_processor.json
 be3643e5684d97e237bfcace9a15809f4262ba56 assets/create_programmablepals/models/item/colored_tape_bool.json
 eba14109c80864a6824b4968d67988a70584a90b assets/create_programmablepals/models/item/colored_tape_float.json
@@ -6,5 +6,5 @@ eba14109c80864a6824b4968d67988a70584a90b assets/create_programmablepals/models/i
 7b5eb2f98cf180dbd717afe9d39da0e8ef037073 assets/create_programmablepals/models/item/colored_tape_string.json
 dda7a25a2c34b5dce8305d1e14486d0e30cf8fec assets/create_programmablepals/models/item/colored_tape_void.json
 93a3dd78179a37564a1c0f1d55b284cf024b4544 assets/create_programmablepals/models/item/concluses_music_disc.json
-63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/create_programmablepals/models/item/programmable_pal_box.json
+fb7accc84bad19b6d15f867b954a8e9a5abc884d assets/create_programmablepals/models/item/programmable_pal_box.json
 6d567bdd1c73d6a8c5b5044e35ecf4a435900a16 assets/create_programmablepals/models/item/sesulcnoc_music_disc.json
