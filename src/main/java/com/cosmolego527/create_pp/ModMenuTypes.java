@@ -32,4 +32,7 @@ public class ModMenuTypes {
     public static void register(IEventBus eventBus){
         MENUS.register(eventBus);
     }
+    public <T extends AbstractContainerMenu, SC extends Screen & MenuAccess<T>> MenuBuilder<T, SC, S> menu(String name, MenuBuilder.ForgeMenuFactory<T> factory, NonNullSupplier<MenuBuilder.ScreenFactory<T, SC>> screenFactory) {
+        return menu(self(), name, factory, screenFactory);
+    }
 }
