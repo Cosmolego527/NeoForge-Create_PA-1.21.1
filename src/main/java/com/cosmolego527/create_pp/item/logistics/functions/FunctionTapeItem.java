@@ -1,18 +1,12 @@
 package com.cosmolego527.create_pp.item.logistics.functions;
 
 import com.cosmolego527.create_pp.ModMenuTypes;
-import com.cosmolego527.create_pp.component.ModDataComponents;
+import com.cosmolego527.create_pp.component.ModDataComponentTypes;
 import com.cosmolego527.create_pp.item.ModItems;
 import com.simibubi.create.AllDataComponents;
-import com.simibubi.create.AllKeys;
-import com.simibubi.create.content.logistics.box.PackageItem;
 import com.simibubi.create.content.logistics.filter.*;
 import com.simibubi.create.foundation.item.ItemHelper;
-import com.simibubi.create.foundation.utility.CreateLang;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.component.TypedDataComponent;
-import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -25,31 +19,24 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import com.simibubi.create.foundation.recipe.ItemCopyingRecipe.SupportsItemCopying;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
 
 public class FunctionTapeItem extends Item implements MenuProvider, SupportsItemCopying {
     private FunctionType type;
 
     public enum FunctionType {
-        BOOL, INT, STRING, VOID;
+        BOOL, INT, STRING, VOID, FLOAT;
     }
 
     public static FunctionTapeItem boolFuncItem(Properties properties) {return new FunctionTapeItem(FunctionType.BOOL, properties);}
     public static FunctionTapeItem intFuncItem(Properties properties) {return new FunctionTapeItem(FunctionType.INT, properties);}
     public static FunctionTapeItem stringFuncItem(Properties properties) {return new FunctionTapeItem(FunctionType.STRING, properties);}
     public static FunctionTapeItem voidFuncItem(Properties properties) {return new FunctionTapeItem(FunctionType.VOID, properties);}
+    public static FunctionTapeItem floatFuncItem(Properties properties) {return new FunctionTapeItem(FunctionType.FLOAT, properties);}
 
     public FunctionTapeItem(FunctionType type, Properties properties) {
         super(properties);
@@ -86,7 +73,7 @@ public class FunctionTapeItem extends Item implements MenuProvider, SupportsItem
         if (type == FunctionType.STRING)
             return PackageFilterMenu.create(id, inv, heldItem);
         if (type == FunctionType.VOID)
-            return new VoidFunctionMenu(, inv, heldItem);
+            return new VoidFunctionMenu(ModMenuTypes.VOID_FUNCTION_MENU.get(), id, inv, heldItem);
         return null;
     }
 
@@ -97,7 +84,7 @@ public class FunctionTapeItem extends Item implements MenuProvider, SupportsItem
 
     public static ItemStackHandler getFilterItems(ItemStack stack) {
         ItemStackHandler newInv = new ItemStackHandler(18);
-        if (ModItems.COLORED_TAPE_VOID.get() != stack.getItem())
+        if (ModItems.VOID_FUNCTION_TAPE.get() != stack.getItem())
             throw new IllegalArgumentException("Cannot get filter items from non-filter: " + stack);
         if (!stack.has(AllDataComponents.FILTER_ITEMS))
             return newInv;
@@ -115,8 +102,8 @@ public class FunctionTapeItem extends Item implements MenuProvider, SupportsItem
         return switch (type) {
             case BOOL -> AllDataComponents.FILTER_ITEMS;
             case INT -> AllDataComponents.ATTRIBUTE_FILTER_MATCHED_ATTRIBUTES;
-            case STRING -> AllDataComponents.PACKAGE_ADDRESS;
-            case VOID -> ModDataComponents.VOID_FUNCTION_TAG;
+            case STRING, FLOAT -> AllDataComponents.PACKAGE_ADDRESS;
+            case VOID -> ModDataComponentTypes.VOID_FUNCTION_DATA;
 
         };
     }

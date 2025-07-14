@@ -2,6 +2,7 @@ package com.cosmolego527.create_pp.entity.custom;
 
 import com.cosmolego527.create_pp.entity.ProgrammablePalVariant;
 import com.simibubi.create.AllItems;
+import io.netty.channel.nio.AbstractNioMessageChannel;
 import net.minecraft.Util;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -48,11 +49,7 @@ public class ProgrammablePalEntity extends Animal {
     }
 
     public static AttributeSupplier.Builder createAttributes(){
-        return Animal.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH, 10d)
-                .add(Attributes.MOVEMENT_SPEED, 0.25d)
-                .add(Attributes.FOLLOW_RANGE, 24f);
-
+        return Animal.createLivingAttributes();
     }
 
     @Override

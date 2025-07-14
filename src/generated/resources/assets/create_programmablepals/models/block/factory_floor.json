@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "create_programmablepals:block/factory_floor"
+    "end": "create_programmablepals:block/factory_floor_top",
+    "side": "create_programmablepals:block/factory_floor"
   }
 }

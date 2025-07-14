@@ -27,18 +27,17 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.PROGRAMMABLE_PAL_BOX);
 
-                        output.accept(ModItems.COLORED_TAPE_BOOL);
-                        output.accept(ModItems.COLORED_TAPE_INT);
-                        output.accept(ModItems.COLORED_TAPE_STRING);
-                        output.accept(ModItems.COLORED_TAPE_VOID);
-                        output.accept(ModItems.COLORED_TAPE_FLOAT);
+                        output.accept(ModItems.VOID_FUNCTION_TAPE);
+                        output.accept(ModItems.BOOL_FUNCTION_TAPE);
+                        output.accept(ModItems.STRING_FUNCTION_TAPE);
+                        output.accept(ModItems.INT_FUNCTION_TAPE);
+                        output.accept(ModItems.FLOAT_FUNCTION_TAPE);
 
                         output.accept(ModItems.CONCLUSES_MUSIC_DISC);
                         output.accept(ModItems.SESULCNOC_MUSIC_DISC);
 
 
                         output.accept(ModBlocks.FACTORY_FLOOR);
-                        output.accept(ModBlocks.FACTORY_FLOOR_STAIRS);
                         output.accept(ModBlocks.FACTORY_FLOOR_SLAB);
                     }).build());
 

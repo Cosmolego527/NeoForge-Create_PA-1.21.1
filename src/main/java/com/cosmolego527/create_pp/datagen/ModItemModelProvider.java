@@ -16,11 +16,11 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         basicItem(ModItems.AUTOMATON_PROCESSOR.get());
 
-        basicItem(ModItems.COLORED_TAPE_BOOL.get());
-        basicItem(ModItems.COLORED_TAPE_INT.get());
-        basicItem(ModItems.COLORED_TAPE_STRING.get());
-        basicItem(ModItems.COLORED_TAPE_VOID.get());
-        basicItem(ModItems.COLORED_TAPE_FLOAT.get());
+        basicItem(ModItems.VOID_FUNCTION_TAPE.get());
+        basicItem(ModItems.BOOL_FUNCTION_TAPE.get());
+        basicItem(ModItems.STRING_FUNCTION_TAPE.get());
+        basicItem(ModItems.INT_FUNCTION_TAPE.get());
+        basicItem(ModItems.FLOAT_FUNCTION_TAPE.get());
 
         basicItem(ModItems.CONCLUSES_MUSIC_DISC.get());
         basicItem(ModItems.SESULCNOC_MUSIC_DISC.get());
