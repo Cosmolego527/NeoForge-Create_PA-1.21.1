@@ -37,8 +37,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("I I")
                 .define('I', Items.IRON_INGOT)
                 .unlockedBy("has_iron", has(Items.IRON_INGOT)).save(recipeOutput);
-        slabBuilder(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR_SLAB, Ingredient.of(ModBlocks.FACTORY_FLOOR))
-                .unlockedBy("has_factory_floor", has(ModBlocks.FACTORY_FLOOR)).save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AUTOMATON_PROCESSOR.get())
                 .pattern("E E")
@@ -49,10 +47,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('P', AllItems.PRECISION_MECHANISM.get())
                 .define('E', AllItems.ELECTRON_TUBE)
                 .unlockedBy("has_precision_mechanism", has(AllItems.PRECISION_MECHANISM)).save(recipeOutput);
-
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.FACTORY_FLOOR), RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR_SLAB, 2)
-                        .unlockedBy("has_factory_floor", has(ModBlocks.FACTORY_FLOOR))
-                        .save(recipeOutput, "create_programmablepals:factory_floor_slab_from_factory_floor_stonecutting");
 
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(AllBlocks.INDUSTRIAL_IRON_BLOCK),RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR)
                         .unlockedBy("has_industrial_iron", has(AllBlocks.INDUSTRIAL_IRON_BLOCK))

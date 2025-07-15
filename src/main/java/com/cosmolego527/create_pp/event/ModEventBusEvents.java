@@ -19,7 +19,7 @@ public class ModEventBusEvents {
 
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event){
-        event.put(ModEntities.PROGRAMMABLE_PAL.get(), ProgrammablePalEntity.createAttributes().build());
+        event.put(ModEntities.PROGRAMMABLE_PAL_ENTITY.get(), ProgrammablePalEntity.createPalAttributes().build());
     }
 
 

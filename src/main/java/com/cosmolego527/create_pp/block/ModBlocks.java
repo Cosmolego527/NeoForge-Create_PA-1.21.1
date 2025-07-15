@@ -4,8 +4,10 @@ import com.cosmolego527.create_pp.CreatePP;
 import com.cosmolego527.create_pp.block.Custom.WrenchableBlock;
 import com.cosmolego527.create_pp.block.Custom.WrenchableSlabBlock;
 import com.cosmolego527.create_pp.block.Custom.WrenchableStairBlock;
+import com.cosmolego527.create_pp.item.ModCreativeModeTabs;
 import com.cosmolego527.create_pp.item.ModItems;
 import com.simibubi.create.foundation.data.BuilderTransformers;
+import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.world.item.BlockItem;
@@ -21,16 +23,18 @@ import javax.swing.*;
 import java.util.function.Supplier;
 
 public class ModBlocks {
+    private static final CreateRegistrate REGISTRATE = CreatePP.registrate();
+
+    static {
+        REGISTRATE.setCreativeTab(ModCreativeModeTabs.CREATE_PP_TAB);
+    }
 
     public static final BlockEntry<WrenchableBlock> FACTORY_FLOOR = CreatePP.REGISTRATE.block("factory_floor", WrenchableBlock::new)
             .transform(BuilderTransformers.palettesIronBlock())
             .lang("Factory Floor")
             .register();
 
-    public static final BlockEntry<WrenchableSlabBlock> FACTORY_FLOOR_SLAB = CreatePP.REGISTRATE.block("factory_floor", WrenchableSlabBlock::new)
-            .transform(BuilderTransformers.palettesIronBlock())
-            .lang("Factory Floor Slab")
-            .register();
+
 
 
 //    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(CreatePP.MOD_ID);

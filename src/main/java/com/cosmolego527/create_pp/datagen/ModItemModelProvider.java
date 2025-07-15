@@ -26,7 +26,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.SESULCNOC_MUSIC_DISC.get());
 
         //withExistingParent(ModItems.PROGRAMMABLE_PAL_BOX.getId().getPath(), mcLoc("item/template_spawn_egg"));
-        basicItem(ModItems.PROGRAMMABLE_PAL_BOX.get());
+        //basicItem(ModItems.PROGRAMMABLE_PAL_BOX.get());
     }
 
 

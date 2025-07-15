@@ -2,10 +2,18 @@ package com.cosmolego527.create_pp.item;
 
 import com.cosmolego527.create_pp.CreatePP;
 import com.cosmolego527.create_pp.entity.ModEntities;
+import com.cosmolego527.create_pp.entity.ProgrammablePalStyles;
+import com.cosmolego527.create_pp.entity.ProgrammablePalVariant;
 import com.cosmolego527.create_pp.item.custom.ProgrammablePalKit;
 import com.cosmolego527.create_pp.item.logistics.functions.FunctionTapeItem;
 import com.cosmolego527.create_pp.sound.ModSounds;
+import com.cosmolego527.create_pp.util.CPP_BuilderTransformers;
+import com.simibubi.create.foundation.data.BuilderTransformers;
+import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.tterrag.registrate.builders.ItemBuilder;
+import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
@@ -36,20 +44,33 @@ public class ModItems {
                     .register();
 
 
-
     public static final ItemEntry<Item> CONCLUSES_MUSIC_DISC = CreatePP.REGISTRATE.item("concluses_music_disc", Item::new)
             .lang("Concluses Music Disc")
-            .properties(p -> p.jukeboxPlayable(ModSounds.CONSLUSES_KEY).stacksTo(1))
+            .properties(p -> p.jukeboxPlayable(ModSounds.CONCLUSES_KEY).stacksTo(1))
             .register();
     public static final ItemEntry<Item> SESULCNOC_MUSIC_DISC = CreatePP.REGISTRATE.item("sesulcnoc_music_disc", Item::new)
             .lang("sesulcnoC Music Disc")
-            .properties(p -> p.jukeboxPlayable(ModSounds.CONSLUSES_KEY).stacksTo(1))
+            .properties(p -> p.jukeboxPlayable(ModSounds.SESULCNOC_KEY).stacksTo(1))
             .register();
 
+//
+//    public static final ItemEntry<ProgrammablePalKit> PROGRAMMABLE_PAL_BOX = CreatePP.REGISTRATE.item("programmable_pal_box", ProgrammablePalKit::new)
+//            .lang("Programmable Pal Kit")
+//            .register();
 
-    public static final ItemEntry<ProgrammablePalKit> PROGRAMMABLE_PAL_BOX = CreatePP.REGISTRATE.item("programmable_pal_box", ProgrammablePalKit::Kit)
-            .lang("Programmable Pal Kit")
-            .register();
+    static{
+        boolean created = false;
+        for(ProgrammablePalStyles.PPalStyle style : ProgrammablePalStyles.STYLES){
+
+            ItemBuilder<ProgrammablePalKit, CreateRegistrate> programmablePalKit = CPP_BuilderTransformers.programmablePalItem(style);
+
+            if (created)
+                programmablePalKit.setData(ProviderType.LANG, NonNullBiConsumer.noop());
+
+            created |= style.made();
+            programmablePalKit.register();
+        }
+    }
 
 //    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CreatePP.MOD_ID);
 //

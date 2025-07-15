@@ -15,11 +15,6 @@ import java.util.List;
 
 public class CreatePPLang extends Lang {
 
-	/**
-	 * legacy-ish. Use CreateLang.translate and other builder methods where possible
-	 *
-
-	 */
 	public static MutableComponent translateDirect(String key, Object... args) {
         Object[] args1 = LangBuilder.resolveBuilders(args);
         return Component.translatable(CreatePP.MOD_ID + "." + key, args1);
