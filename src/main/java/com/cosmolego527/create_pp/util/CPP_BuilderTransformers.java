@@ -19,7 +19,6 @@ public class CPP_BuilderTransformers {
                 .model((c,p)-> {
                     p.withExistingParent(c.getName(), p.modLoc("item/" + style.type()));
                 })
-                .lang(style.Variant().name().substring(0,1).toUpperCase(Locale.ROOT)
-                        + style.Variant().name().substring(1).toLowerCase(Locale.ROOT) + " Programmable Pal");
+                .lang("Programmable Pal");
     }
 }

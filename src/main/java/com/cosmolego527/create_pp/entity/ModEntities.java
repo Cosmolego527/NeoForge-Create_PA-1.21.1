@@ -28,7 +28,7 @@ public class ModEntities {
 
 
     public static final EntityEntry<ProgrammablePalEntity> PROGRAMMABLE_PAL_ENTITY = register("programmable_pal", ProgrammablePalEntity::new, () -> ProgrammablePalRenderer::new,
-            MobCategory.MISC, 10, 3, true, false, ProgrammablePalEntity::build).properties(p-> p.sized(0.625f, 0.875f))
+            MobCategory.MISC, 10, 3, true, false, ProgrammablePalEntity::build).properties(p -> p.sized(0.625f, 0.875f))
             .register();
 
     private static <T extends Entity> CreateEntityBuilder<T, ?> register(String name, EntityType.EntityFactory<T> factory,

@@ -5,9 +5,13 @@ import com.cosmolego527.create_pp.entity.ModEntities;
 import com.cosmolego527.create_pp.entity.ProgrammablePalStyles;
 import com.cosmolego527.create_pp.entity.ProgrammablePalVariant;
 import com.cosmolego527.create_pp.entity.custom.ProgrammablePalEntity;
+import com.simibubi.create.AllEntityTypes;
 import com.sun.jna.platform.win32.Variant;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -21,6 +25,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
@@ -60,21 +65,30 @@ public class ProgrammablePalKit extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        Vec3 point = context.getClickLocation();
-        float h = 0.625f;
-        float r = 0.875f;
+        Level level = context.getLevel();
 
-        if (context.getClickedFace() == Direction.DOWN)
-            point = point.subtract(0, h+.25f,0);
-        else if(context.getClickedFace().getAxis().isHorizontal())
-            point = point.add(Vec3.atLowerCornerOf(context.getClickedFace().getNormal()).scale(r));
+        float h = 0.875f, r = 0.625f/2f;
+
+        BlockPos block = context.getClickedPos();
+        block = block.above();
+        Vec3 point = context.getClickLocation();
+        Direction direction = context.getClickedFace();
+        if(direction.getAxis().isHorizontal()) point = point.add(Vec3.atLowerCornerOf(direction.getNormal()).scale(r));
+
         AABB scanBB = new AABB(point, point).inflate(r,0,r).expandTowards(0,h,0);
-        Level world = context.getLevel();
-        ProgrammablePalEntity entity = new ProgrammablePalEntity(world, point.x, point.y,point.z);
+        if (!level.getEntities(ModEntities.PROGRAMMABLE_PAL_ENTITY.get(), scanBB, e-> true).isEmpty())
+            return super.useOn(context);
+
+        ProgrammablePalEntity entity = new ProgrammablePalEntity(level, block);
         ItemStack itemInHand = context.getItemInHand();
-        entity.setItemStack(itemInHand.copy());
-        world.addFreshEntity(entity);
+        entity.setItem(itemInHand.copy());
+        entity.setVariant(Style);
+        level.addFreshEntity(entity);
         itemInHand.shrink(1);
         return InteractionResult.SUCCESS;
+    }
+
+    public static boolean isPal(ItemStack stack) {
+        return stack.getItem() instanceof ProgrammablePalKit;
     }
 }

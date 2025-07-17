@@ -1,7 +1,7 @@
-// 1.21.1	2025-07-14T22:51:26.8896888	Registrate Provider for create_programmablepals [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.21.1	2025-07-16T14:39:45.131613	Registrate Provider for create_programmablepals [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 2eb1df360cd47594b44e7a325ebdcfbd0c3760ee assets/create_programmablepals/blockstates/factory_floor.json
-7e86eeee45ecbdb2a12867f4c224a4be716189dd assets/create_programmablepals/lang/en_ud.json
-eec6cea1967b0b45bfaa6b137201ca71f9f668d0 assets/create_programmablepals/lang/en_us.json
+f1dc2e396f7151cf86bfd77c024a0cac73ab1d94 assets/create_programmablepals/lang/en_ud.json
+71ccb505e2e4996582d88aac9c7ab75499a236e1 assets/create_programmablepals/lang/en_us.json
 243f47172a4bc2450cf444019acd7852dcb55a25 assets/create_programmablepals/models/block/factory_floor.json
 aa5193ed340f5ade97a6d947c5eac55950051b07 assets/create_programmablepals/models/item/automaton_processor.json
 1f0f56158842c3f1d65e774f9197b11da7402929 assets/create_programmablepals/models/item/bool_function_tape.json
