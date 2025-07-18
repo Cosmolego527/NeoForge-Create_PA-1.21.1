@@ -46,9 +46,9 @@ public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> REGISTER =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CreatePP.MOD_ID);
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATE_PP_TAB = REGISTER.register("base",
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATE_PP_TAB = REGISTER.register("createpp_base",
             ()-> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.create_programmablepals.base"))
+                    .title(Component.translatable("itemGroup.create_programmablepals.createpp_base"))
                     .withTabsBefore(AllCreativeModeTabs.PALETTES_CREATIVE_TAB.getKey())
                     .icon(ModItems.AUTOMATON_PROCESSOR::asStack)
                     .displayItems(new RegistrateDisplayItemsGenerator(true, ModCreativeModeTabs.CREATE_PP_TAB))
@@ -110,28 +110,6 @@ public class ModCreativeModeTabs {
 
         private static List<RegistrateDisplayItemsGenerator.ItemOrdering> makeOrderings() {
             List<RegistrateDisplayItemsGenerator.ItemOrdering> orderings = new ReferenceArrayList<>();
-
-            Map<ItemProviderEntry<?, ?>, ItemProviderEntry<?, ?>> simpleBeforeOrderings = Map.of(
-                    AllItems.EMPTY_BLAZE_BURNER, AllBlocks.BLAZE_BURNER,
-                    AllItems.SCHEDULE, AllBlocks.TRACK_STATION
-            );
-
-            Map<ItemProviderEntry<?, ?>, ItemProviderEntry<?, ?>> simpleAfterOrderings = Map.of(
-                    AllItems.VERTICAL_GEARBOX, AllBlocks.GEARBOX
-            );
-
-            simpleBeforeOrderings.forEach((entry, otherEntry) -> {
-                orderings.add(RegistrateDisplayItemsGenerator.ItemOrdering.before(entry.asItem(), otherEntry.asItem()));
-            });
-
-            simpleAfterOrderings.forEach((entry, otherEntry) -> {
-                orderings.add(RegistrateDisplayItemsGenerator.ItemOrdering.after(entry.asItem(), otherEntry.asItem()));
-            });
-
-            PackageStyles.STANDARD_BOXES.forEach(item -> {
-                if (RegisteredObjectsHelper.getKeyOrThrow(item).getNamespace().equals(CreatePP.MOD_ID))
-                    orderings.add(RegistrateDisplayItemsGenerator.ItemOrdering.after(item, AllBlocks.PACKAGER.asItem()));
-            });
 
             return orderings;
         }

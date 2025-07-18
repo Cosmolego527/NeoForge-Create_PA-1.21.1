@@ -22,6 +22,7 @@ import net.minecraft.world.Container;
 import net.minecraft.world.ContainerListener;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -61,10 +62,17 @@ public class ProgrammablePalEntity extends PathfinderMob implements IEntityWithC
         super(entityTypeIn, level);
         insertionDelay = 30;
     }
-    public ProgrammablePalEntity(Level worldIn, BlockPos pos) {
+    public ProgrammablePalEntity(Level worldIn, Vec3 pos) {
         this(ModEntities.PROGRAMMABLE_PAL_ENTITY.get(), worldIn);
-        this.setPos(pos.getCenter());
+        this.setPos(pos);
         this.refreshDimensions();
+    }
+
+    @Override
+    protected void dropAllDeathLoot(ServerLevel p_level, DamageSource damageSource) {
+        super.dropAllDeathLoot(p_level, damageSource);
+        ItemEntity entityIn = new ItemEntity(level(),getX(),getY(),getZ(), itemStack);
+        p_level.addFreshEntity(entityIn);
     }
 
     public static EntityType.Builder<?> build(EntityType.Builder<?> builder){
