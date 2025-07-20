@@ -25,10 +25,22 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.CONCLUSES_MUSIC_DISC.get());
         basicItem(ModItems.SESULCNOC_MUSIC_DISC.get());
 
-        //withExistingParent(ModItems.PROGRAMMABLE_PAL_BOX.getId().getPath(), mcLoc("item/template_spawn_egg"));
-        //basicItem(ModItems.PROGRAMMABLE_PAL_BOX.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_DEFAULT.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_WHITE.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_LIGHTGRAY.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_GRAY.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_BLACK.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_RED.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_ORANGE.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_YELLOW.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_LIME.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_GREEN.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_LIGHTBLUE.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_CYAN.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_BLUE.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_PURPLE.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_MAGENTA.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_PINK.get());
+        basicItem(ModItems.PROGRAMMABLE_PAL_KIT_BROWN.get());
     }
-
-
-
 }

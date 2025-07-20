@@ -1,0 +1,33 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": false,
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:andesite_casing"
+    },
+    "B": {
+      "item": "create:brass_hand"
+    },
+    "C": {
+      "item": "create:copper_diving_boots"
+    },
+    "G": {
+      "item": "minecraft:light_blue_stained_glass"
+    },
+    "P": {
+      "item": "create_programmablepals:automaton_processor"
+    }
+  },
+  "pattern": [
+    " G ",
+    " P ",
+    "BAB",
+    " C "
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_programmablepals:programmable_pal_box_dyed10"
+  },
+  "show_notification": false
+}

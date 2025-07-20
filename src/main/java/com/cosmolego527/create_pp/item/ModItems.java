@@ -1,26 +1,11 @@
 package com.cosmolego527.create_pp.item;
 
 import com.cosmolego527.create_pp.CreatePP;
-import com.cosmolego527.create_pp.entity.ModEntities;
-import com.cosmolego527.create_pp.entity.ProgrammablePalStyles;
-import com.cosmolego527.create_pp.entity.ProgrammablePalVariant;
-import com.cosmolego527.create_pp.item.custom.ProgrammablePalKit;
+import com.cosmolego527.create_pp.item.custom.ProgrammablePalKitItem;
 import com.cosmolego527.create_pp.item.logistics.functions.FunctionTapeItem;
 import com.cosmolego527.create_pp.sound.ModSounds;
-import com.cosmolego527.create_pp.util.CPP_BuilderTransformers;
-import com.simibubi.create.foundation.data.BuilderTransformers;
-import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.tterrag.registrate.builders.ItemBuilder;
-import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.ItemEntry;
-import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SpawnEggItem;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems {
     public static final ItemEntry<Item> AUTOMATON_PROCESSOR =
@@ -53,24 +38,38 @@ public class ModItems {
             .properties(p -> p.jukeboxPlayable(ModSounds.SESULCNOC_KEY).stacksTo(1))
             .register();
 
+    public static final ItemEntry<ProgrammablePalKitItem>
+            PROGRAMMABLE_PAL_KIT_WHITE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed4", ProgrammablePalKitItem::PPalWhite).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_LIGHTGRAY = CreatePP.REGISTRATE.item("programmable_pal_box_dyed3", ProgrammablePalKitItem::PPalLightGray).register(),
+            PROGRAMMABLE_PAL_KIT_GRAY = CreatePP.REGISTRATE.item("programmable_pal_box_dyed2", ProgrammablePalKitItem::PPalGray).register(),
+            PROGRAMMABLE_PAL_KIT_BLACK = CreatePP.REGISTRATE.item("programmable_pal_box_dyed1", ProgrammablePalKitItem::PPalBlack).register(),
+            PROGRAMMABLE_PAL_KIT_RED = CreatePP.REGISTRATE.item("programmable_pal_box_dyed5", ProgrammablePalKitItem::PPalRed).register(),
+            PROGRAMMABLE_PAL_KIT_ORANGE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed6", ProgrammablePalKitItem::PPalOrange).register(),
+            PROGRAMMABLE_PAL_KIT_YELLOW = CreatePP.REGISTRATE.item("programmable_pal_box_dyed7", ProgrammablePalKitItem::PPalYellow).register(),
+            PROGRAMMABLE_PAL_KIT_LIME = CreatePP.REGISTRATE.item("programmable_pal_box_dyed8", ProgrammablePalKitItem::PPalLime).register(),
+            PROGRAMMABLE_PAL_KIT_GREEN = CreatePP.REGISTRATE.item("programmable_pal_box_dyed9", ProgrammablePalKitItem::PPalGreen).register(),
+            PROGRAMMABLE_PAL_KIT_LIGHTBLUE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed10", ProgrammablePalKitItem::PPalLightBlue).register(),
+            PROGRAMMABLE_PAL_KIT_CYAN = CreatePP.REGISTRATE.item("programmable_pal_box_dyed11", ProgrammablePalKitItem::PPalCyan).register(),
+            PROGRAMMABLE_PAL_KIT_BLUE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed12", ProgrammablePalKitItem::PPalBlue).register(),
+            PROGRAMMABLE_PAL_KIT_PURPLE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed13", ProgrammablePalKitItem::PPalPurple).register(),
+            PROGRAMMABLE_PAL_KIT_MAGENTA = CreatePP.REGISTRATE.item("programmable_pal_box_dyed14", ProgrammablePalKitItem::PPalMagenta).register(),
+            PROGRAMMABLE_PAL_KIT_PINK = CreatePP.REGISTRATE.item("programmable_pal_box_dyed15", ProgrammablePalKitItem::PPalPink).register(),
+            PROGRAMMABLE_PAL_KIT_BROWN = CreatePP.REGISTRATE.item("programmable_pal_box_dyed16", ProgrammablePalKitItem::PPalBrown).register(),
+            PROGRAMMABLE_PAL_KIT_DEFAULT = CreatePP.REGISTRATE.item("programmable_pal_box", ProgrammablePalKitItem::PPalDefault).register();
+
+//    static{
+//        boolean created = false;
+//        for(ProgrammablePalStyles.PPalStyle style : ProgrammablePalStyles.STYLES){
 //
-//    public static final ItemEntry<ProgrammablePalKit> PROGRAMMABLE_PAL_BOX = CreatePP.REGISTRATE.item("programmable_pal_box", ProgrammablePalKit::new)
-//            .lang("Programmable Pal Kit")
-//            .register();
-
-    static{
-        boolean created = false;
-        for(ProgrammablePalStyles.PPalStyle style : ProgrammablePalStyles.STYLES){
-
-            ItemBuilder<ProgrammablePalKit, CreateRegistrate> programmablePalKit = CPP_BuilderTransformers.programmablePalItem(style);
-
-            if (created)
-                programmablePalKit.setData(ProviderType.LANG, NonNullBiConsumer.noop());
-
-            created |= style.made();
-            programmablePalKit.register();
-        }
-    }
+//            ItemBuilder<ProgrammablePalKit, CreateRegistrate> programmablePalKit = CPP_BuilderTransformers.programmablePalItem(style);
+//
+//            if (created)
+//                programmablePalKit.setData(ProviderType.LANG, NonNullBiConsumer.noop());
+//
+//            created |= style.made();
+//            programmablePalKit.register();
+//        }
+//    }
 
 //    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CreatePP.MOD_ID);
 //

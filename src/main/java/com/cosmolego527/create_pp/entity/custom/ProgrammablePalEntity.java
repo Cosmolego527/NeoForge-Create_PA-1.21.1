@@ -1,46 +1,28 @@
 package com.cosmolego527.create_pp.entity.custom;
 
 import com.cosmolego527.create_pp.entity.ModEntities;
-import com.cosmolego527.create_pp.entity.ProgrammablePalStyles;
 import com.cosmolego527.create_pp.entity.ProgrammablePalVariant;
-import com.cosmolego527.create_pp.item.ModItems;
-import com.cosmolego527.create_pp.item.custom.ProgrammablePalKit;
 import com.simibubi.create.AllItems;
-import com.simibubi.create.content.logistics.box.PackageItem;
-import io.netty.channel.nio.AbstractNioMessageChannel;
-import net.createmod.catnip.math.VecHelper;
 import net.createmod.ponder.api.level.PonderLevel;
-import net.minecraft.Util;
-import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
-import net.minecraft.world.ContainerListener;
-import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 public class ProgrammablePalEntity extends PathfinderMob implements IEntityWithComplexSpawn {
     public final AnimationState idleAnimationState = new AnimationState();
@@ -160,8 +142,8 @@ public class ProgrammablePalEntity extends PathfinderMob implements IEntityWithC
         return ProgrammablePalVariant.byId(this.getTypeVariant() & 255);
     }
 
-    public void setVariant(ProgrammablePalStyles.PPalStyle style) {
-        this.entityData.set(DOME_COLOR, style.Variant().getId() & 255);
+    public void setVariant(ProgrammablePalVariant style) {
+        this.entityData.set(DOME_COLOR, style.getId() & 255);
     }
 
     @Override
