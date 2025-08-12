@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "create_programmablepals:programmable_pal_item"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "create_programmablepals:programmable_pal_box"
+  }
+}

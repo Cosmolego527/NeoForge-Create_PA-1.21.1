@@ -4,10 +4,17 @@ import com.cosmolego527.create_pp.CreatePP;
 import com.cosmolego527.create_pp.item.custom.ProgrammablePalKitItem;
 import com.cosmolego527.create_pp.item.logistics.functions.FunctionTapeItem;
 import com.cosmolego527.create_pp.sound.ModSounds;
+import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.world.item.Item;
 
 public class ModItems {
+    private static final CreateRegistrate REGISTRATE = CreatePP.registrate();
+
+    static {
+        REGISTRATE.setCreativeTab(ModCreativeModeTabs.CREATE_PP_TAB);
+    }
+
     public static final ItemEntry<Item> AUTOMATON_PROCESSOR =
             CreatePP.REGISTRATE.item("automaton_processor", Item::new)
                     .register();
@@ -40,22 +47,22 @@ public class ModItems {
 
     public static final ItemEntry<ProgrammablePalKitItem>
             PROGRAMMABLE_PAL_KIT_WHITE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed4", ProgrammablePalKitItem::PPalWhite).lang("Programmable Pal").register(),
-            PROGRAMMABLE_PAL_KIT_LIGHTGRAY = CreatePP.REGISTRATE.item("programmable_pal_box_dyed3", ProgrammablePalKitItem::PPalLightGray).register(),
-            PROGRAMMABLE_PAL_KIT_GRAY = CreatePP.REGISTRATE.item("programmable_pal_box_dyed2", ProgrammablePalKitItem::PPalGray).register(),
-            PROGRAMMABLE_PAL_KIT_BLACK = CreatePP.REGISTRATE.item("programmable_pal_box_dyed1", ProgrammablePalKitItem::PPalBlack).register(),
-            PROGRAMMABLE_PAL_KIT_RED = CreatePP.REGISTRATE.item("programmable_pal_box_dyed5", ProgrammablePalKitItem::PPalRed).register(),
-            PROGRAMMABLE_PAL_KIT_ORANGE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed6", ProgrammablePalKitItem::PPalOrange).register(),
-            PROGRAMMABLE_PAL_KIT_YELLOW = CreatePP.REGISTRATE.item("programmable_pal_box_dyed7", ProgrammablePalKitItem::PPalYellow).register(),
-            PROGRAMMABLE_PAL_KIT_LIME = CreatePP.REGISTRATE.item("programmable_pal_box_dyed8", ProgrammablePalKitItem::PPalLime).register(),
-            PROGRAMMABLE_PAL_KIT_GREEN = CreatePP.REGISTRATE.item("programmable_pal_box_dyed9", ProgrammablePalKitItem::PPalGreen).register(),
-            PROGRAMMABLE_PAL_KIT_LIGHTBLUE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed10", ProgrammablePalKitItem::PPalLightBlue).register(),
-            PROGRAMMABLE_PAL_KIT_CYAN = CreatePP.REGISTRATE.item("programmable_pal_box_dyed11", ProgrammablePalKitItem::PPalCyan).register(),
-            PROGRAMMABLE_PAL_KIT_BLUE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed12", ProgrammablePalKitItem::PPalBlue).register(),
-            PROGRAMMABLE_PAL_KIT_PURPLE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed13", ProgrammablePalKitItem::PPalPurple).register(),
-            PROGRAMMABLE_PAL_KIT_MAGENTA = CreatePP.REGISTRATE.item("programmable_pal_box_dyed14", ProgrammablePalKitItem::PPalMagenta).register(),
-            PROGRAMMABLE_PAL_KIT_PINK = CreatePP.REGISTRATE.item("programmable_pal_box_dyed15", ProgrammablePalKitItem::PPalPink).register(),
-            PROGRAMMABLE_PAL_KIT_BROWN = CreatePP.REGISTRATE.item("programmable_pal_box_dyed16", ProgrammablePalKitItem::PPalBrown).register(),
-            PROGRAMMABLE_PAL_KIT_DEFAULT = CreatePP.REGISTRATE.item("programmable_pal_box", ProgrammablePalKitItem::PPalDefault).register();
+            PROGRAMMABLE_PAL_KIT_LIGHTGRAY = CreatePP.REGISTRATE.item("programmable_pal_box_dyed3", ProgrammablePalKitItem::PPalLightGray).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_GRAY = CreatePP.REGISTRATE.item("programmable_pal_box_dyed2", ProgrammablePalKitItem::PPalGray).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_BLACK = CreatePP.REGISTRATE.item("programmable_pal_box_dyed1", ProgrammablePalKitItem::PPalBlack).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_RED = CreatePP.REGISTRATE.item("programmable_pal_box_dyed5", ProgrammablePalKitItem::PPalRed).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_ORANGE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed6", ProgrammablePalKitItem::PPalOrange).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_YELLOW = CreatePP.REGISTRATE.item("programmable_pal_box_dyed7", ProgrammablePalKitItem::PPalYellow).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_LIME = CreatePP.REGISTRATE.item("programmable_pal_box_dyed8", ProgrammablePalKitItem::PPalLime).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_GREEN = CreatePP.REGISTRATE.item("programmable_pal_box_dyed9", ProgrammablePalKitItem::PPalGreen).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_LIGHTBLUE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed10", ProgrammablePalKitItem::PPalLightBlue).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_CYAN = CreatePP.REGISTRATE.item("programmable_pal_box_dyed11", ProgrammablePalKitItem::PPalCyan).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_BLUE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed12", ProgrammablePalKitItem::PPalBlue).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_PURPLE = CreatePP.REGISTRATE.item("programmable_pal_box_dyed13", ProgrammablePalKitItem::PPalPurple).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_MAGENTA = CreatePP.REGISTRATE.item("programmable_pal_box_dyed14", ProgrammablePalKitItem::PPalMagenta).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_PINK = CreatePP.REGISTRATE.item("programmable_pal_box_dyed15", ProgrammablePalKitItem::PPalPink).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_BROWN = CreatePP.REGISTRATE.item("programmable_pal_box_dyed16", ProgrammablePalKitItem::PPalBrown).lang("Programmable Pal").register(),
+            PROGRAMMABLE_PAL_KIT_DEFAULT = CreatePP.REGISTRATE.item("programmable_pal_box", ProgrammablePalKitItem::PPalDefault).lang("Programmable Pal").register();
 
 //    static{
 //        boolean created = false;

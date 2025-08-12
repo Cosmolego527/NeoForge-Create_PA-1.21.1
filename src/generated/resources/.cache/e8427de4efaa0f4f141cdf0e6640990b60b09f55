@@ -1,7 +1,7 @@
-// 1.21.1	2025-07-19T18:18:29.9894636	Registrate Provider for create_programmablepals [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+// 1.21.1	2025-07-21T13:25:29.7757098	Registrate Provider for create_programmablepals [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
 2eb1df360cd47594b44e7a325ebdcfbd0c3760ee assets/create_programmablepals/blockstates/factory_floor.json
-055f77157cdae8b54fdf467d1c5d9515139807b6 assets/create_programmablepals/lang/en_ud.json
-5de047287872a9a6d081c861611b12bbd6604b78 assets/create_programmablepals/lang/en_us.json
+7303784027181ea9bb4a2627c0fc5723a40c9a2a assets/create_programmablepals/lang/en_ud.json
+c2ba88a3124051cabf4dc0a46aa33465cd2308eb assets/create_programmablepals/lang/en_us.json
 243f47172a4bc2450cf444019acd7852dcb55a25 assets/create_programmablepals/models/block/factory_floor.json
 aa5193ed340f5ade97a6d947c5eac55950051b07 assets/create_programmablepals/models/item/automaton_processor.json
 1f0f56158842c3f1d65e774f9197b11da7402929 assets/create_programmablepals/models/item/bool_function_tape.json
@@ -33,4 +33,6 @@ a31361ab27b97fcdda9c009c1759367bfb51158b data/create/tags/block/wrench_pickup.js
 ea4f2ef9727e1fd029a1467a257043b8040e7819 data/create_programmablepals/advancement/recipes/building_blocks/factory_floor_from_ingots_iron_stonecutting.json
 cfca9e013927d5bbb42f92310a7c654012ee0d87 data/create_programmablepals/loot_table/blocks/factory_floor.json
 7021c440246daf2bf2a69a00eb9266bcebb90f64 data/create_programmablepals/recipe/factory_floor_from_ingots_iron_stonecutting.json
+d284656b792f978bf27274827537b485902047c8 data/create_programmablepals/tags/item/programmable_instruction_item.json
+bbe9ab02790c306dbadffc7850bf303c0b623a2b data/create_programmablepals/tags/item/programmable_pal_item.json
 a31361ab27b97fcdda9c009c1759367bfb51158b data/minecraft/tags/block/mineable/pickaxe.json

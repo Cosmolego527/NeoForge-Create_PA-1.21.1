@@ -2,10 +2,13 @@ package com.cosmolego527.create_pp;
 
 import com.cosmolego527.create_pp.block.ModBlocks;
 import com.cosmolego527.create_pp.component.ModDataComponentTypes;
+import com.cosmolego527.create_pp.datagen.DataGenerators;
 import com.cosmolego527.create_pp.entity.ModEntities;
+import com.cosmolego527.create_pp.event.ModEventBusEvents;
 import com.cosmolego527.create_pp.item.ModCreativeModeTabs;
 import com.cosmolego527.create_pp.item.ModItems;
 import com.cosmolego527.create_pp.sound.ModSounds;
+import com.cosmolego527.create_pp.util.ModTags;
 import com.simibubi.create.AllCreativeModeTabs;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.item.ItemDescription;
@@ -16,6 +19,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.fml.ModLoadingContext;
 import org.slf4j.Logger;
 
@@ -54,7 +58,7 @@ public class CreatePP {
         REGISTRATE.registerEventListeners(modEventBus);
 
         ModSounds.prepare();
-
+        ModTags.init();
         ModCreativeModeTabs.register(modEventBus);
         ModBlocks.register();
         ModItems.register();
@@ -66,6 +70,8 @@ public class CreatePP {
         //ModDisplaySources.register();
         ModDataComponentTypes.register(modEventBus);
 
+        modEventBus.addListener(EventPriority.HIGHEST, DataGenerators::gatherDataHighPriority);
+        modEventBus.addListener(EventPriority.LOWEST, DataGenerators::gatherData);
         modEventBus.addListener(ModSounds::register);
     }
 

@@ -10,6 +10,8 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -29,6 +31,8 @@ public class ProgrammablePalEntity extends PathfinderMob implements IEntityWithC
     private int idleAnimationTimeout = 0;
 
     public ItemStack itemStack;
+
+    public ItemStack instructions;
 
     public int insertionDelay;
 
@@ -182,4 +186,10 @@ public class ProgrammablePalEntity extends PathfinderMob implements IEntityWithC
                 additionalData.readFloat());
     }
 
+
+    @Override
+    protected InteractionResult mobInteract(Player player, InteractionHand hand) {
+        //if (player.getItemInHand(hand).getTags().anyMatch())
+        return super.mobInteract(player, hand);
+    }
 }

@@ -3,6 +3,7 @@ package com.cosmolego527.create_pp.item.logistics.functions;
 import com.cosmolego527.create_pp.ModMenuTypes;
 import com.cosmolego527.create_pp.component.ModDataComponentTypes;
 import com.cosmolego527.create_pp.item.ModItems;
+import com.cosmolego527.create_pp.item.logistics.functions.voidfunc.VoidFunctionMenu;
 import com.simibubi.create.AllDataComponents;
 import com.simibubi.create.content.logistics.filter.*;
 import com.simibubi.create.foundation.item.ItemHelper;
@@ -26,6 +27,9 @@ import net.neoforged.neoforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 
 public class FunctionTapeItem extends Item implements MenuProvider, SupportsItemCopying {
+
+    public FunctionInstruction[] functionInstructions;
+
     private FunctionType type;
 
     public enum FunctionType {
@@ -65,15 +69,15 @@ public class FunctionTapeItem extends Item implements MenuProvider, SupportsItem
 
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        ItemStack heldItem = player.getMainHandItem();
-        if (type == FunctionType.BOOL)
-            return AttributeFilterMenu.create(id, inv, heldItem);
-        if (type == FunctionType.INT)
-            return AttributeFilterMenu.create(id, inv, heldItem);
-        if (type == FunctionType.STRING)
-            return PackageFilterMenu.create(id, inv, heldItem);
-        if (type == FunctionType.VOID)
-            return new VoidFunctionMenu(ModMenuTypes.VOID_FUNCTION_MENU.get(), id, inv, heldItem);
+        //ItemStack heldItem = player.getMainHandItem();
+        //if (type == FunctionType.BOOL)
+        //    return AttributeFilterMenu.create(id, inv, heldItem);
+        //if (type == FunctionType.INT)
+        //    return AttributeFilterMenu.create(id, inv, heldItem);
+        //if (type == FunctionType.STRING)
+        //    return PackageFilterMenu.create(id, inv, heldItem);
+        //if (type == FunctionType.VOID)
+        //    return new VoidFunctionMenu(ModMenuTypes.VOID_FUNCTION_MENU.get(), id, inv, heldItem);
         return null;
     }
 
@@ -107,4 +111,6 @@ public class FunctionTapeItem extends Item implements MenuProvider, SupportsItem
 
         };
     }
+
+
 }

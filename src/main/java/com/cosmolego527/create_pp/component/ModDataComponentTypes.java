@@ -5,6 +5,7 @@ import com.cosmolego527.create_pp.CreatePP;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.world.item.component.CustomData;
 import net.neoforged.bus.api.IEventBus;
@@ -18,9 +19,9 @@ public class ModDataComponentTypes {
     public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES =
             DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, CreatePP.MOD_ID);
 
-    public static final DataComponentType<CustomData> VOID_FUNCTION_DATA = register(
+    public static final DataComponentType<CompoundTag> VOID_FUNCTION_DATA = register(
             "void_function_data",
-            builder -> builder.persistent(CustomData.CODEC).networkSynchronized(CustomData.STREAM_CODEC)
+            builder -> builder.persistent(CompoundTag.CODEC).networkSynchronized(ByteBufCodecs.COMPOUND_TAG)
     );
 
     public static final DataComponentType<String> PROGRAMMABLE_PAL_VARIANT = register(

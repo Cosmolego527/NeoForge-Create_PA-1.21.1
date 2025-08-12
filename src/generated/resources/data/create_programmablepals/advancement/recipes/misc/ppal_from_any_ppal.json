@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_programmable_pal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#create_programmablepals:programmable_pal_item"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "create_programmablepals:ppal_from_any_ppal"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_programmable_pal"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "create_programmablepals:ppal_from_any_ppal"
+    ]
+  }
+}

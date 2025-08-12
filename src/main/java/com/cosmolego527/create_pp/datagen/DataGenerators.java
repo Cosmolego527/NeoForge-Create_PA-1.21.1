@@ -4,6 +4,9 @@ package com.cosmolego527.create_pp.datagen;
 import com.cosmolego527.create_pp.CreatePP;
 import com.cosmolego527.create_pp.datagen.recipegenerators.CreatePPMechanicalCraftingRecipeGen;
 import com.cosmolego527.create_pp.datagen.recipegenerators.ModRecipeProvider;
+import com.cosmolego527.create_pp.sound.ModSounds;
+import com.cosmolego527.create_pp.util.CreatePPGeneratedEntriesProvider;
+import com.cosmolego527.create_pp.util.CreatePPRegistrateTags;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.simibubi.create.AllKeys;
@@ -29,7 +32,6 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
-@EventBusSubscriber(modid = CreatePP.MOD_ID)
 public class DataGenerators {
 
 
@@ -38,7 +40,6 @@ public class DataGenerators {
         if (event.getMods().contains(CreatePP.MOD_ID))
             addExtraRegistrateData();
     }
-    @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         if (!event.getMods().contains(CreatePP.MOD_ID))
             return;
@@ -50,7 +51,7 @@ public class DataGenerators {
 
         //generator.addProvider(event.includeClient(), AllSoundEvents.provider(generator));
 
-        GeneratedEntriesProvider generatedEntriesProvider = new GeneratedEntriesProvider(output, lookupProvider);
+        CreatePPGeneratedEntriesProvider generatedEntriesProvider = new CreatePPGeneratedEntriesProvider(output, lookupProvider);
         lookupProvider = generatedEntriesProvider.getRegistryProvider();
         generator.addProvider(event.includeServer(), generatedEntriesProvider);
 
@@ -81,7 +82,7 @@ public class DataGenerators {
     }
 
     private static void addExtraRegistrateData() {
-//        CreateRegistrateTags.addGenerators();
+        CreatePPRegistrateTags.addGenerators();
 //
         CreatePP.registrate().addDataGenerator(ProviderType.LANG, provider -> {
             BiConsumer<String, String> langConsumer = provider::add;
@@ -89,7 +90,7 @@ public class DataGenerators {
             provideDefaultLang("interface", langConsumer);
             provideDefaultLang("tooltips", langConsumer);
 //            AllAdvancements.provideLang(langConsumer);
-//            AllSoundEvents.provideLang(langConsumer);
+            ModSounds.provideLang(langConsumer);
 //            AllKeys.provideLang(langConsumer);
 //            providePonderLang(langConsumer);
         });

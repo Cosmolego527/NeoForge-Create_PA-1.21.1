@@ -3,6 +3,7 @@ package com.cosmolego527.create_pp.datagen.recipegenerators;
 import com.cosmolego527.create_pp.CreatePP;
 import com.cosmolego527.create_pp.block.ModBlocks;
 import com.cosmolego527.create_pp.item.ModItems;
+import com.cosmolego527.create_pp.util.ModTags;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 import net.minecraft.core.HolderLookup;
@@ -48,6 +49,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.IRON_INGOT),RecipeCategory.BUILDING_BLOCKS, ModBlocks.FACTORY_FLOOR, 2)
                         .unlockedBy("has_iron_ingot", has(Items.IRON_INGOT))
                         .save(recipeOutput, "create_programmablepals:factory_floor_from_iron_ingot_stonecutting");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.PROGRAMMABLE_PAL_KIT_DEFAULT.get())
+                .requires(ModTags.AllItemTags.PROGRAMMABLE_PAL_ITEM.tag)
+                .unlockedBy("has_programmable_pal", has(ModTags.AllItemTags.PROGRAMMABLE_PAL_ITEM.tag))
+                .save(recipeOutput, "create_programmablepals:ppal_from_any_ppal");
 
 
 

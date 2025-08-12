@@ -47,28 +47,9 @@ public class ModSounds {
             CONCLUSES = create("concluses").category(SoundSource.RECORDS).noSubtitle().build(),
             SESULCNOC = create("sesulcnoc").category(SoundSource.RECORDS).noSubtitle().build();
 
-//    public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
-//            DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, CreatePP.MOD_ID);
-//
-//
-//
-//    public static final Supplier<SoundEvent> CONCLUSES = registerSoundEvent("concluses");
-//    public static final ResourceKey<JukeboxSong> CONSLUSES_KEY = createSong("concluses");
-//    public static final Supplier<SoundEvent> SESULCNOC = registerSoundEvent("sesulcnoc");
-//    public static final ResourceKey<JukeboxSong> SESULCNOC_KEY = createSong("sesulcnoc");
-//
     private static ResourceKey<JukeboxSong> createSong(String name){
         return ResourceKey.create(Registries.JUKEBOX_SONG, ResourceLocation.fromNamespaceAndPath(CreatePP.MOD_ID, name));
     }
-//    private static Supplier<SoundEvent> registerSoundEvent(String name) {
-//        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(CreatePP.MOD_ID, name);
-//        return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(id));
-//    }
-//
-//    public static void register(IEventBus eventBus){
-//        SOUND_EVENTS.register(eventBus);
-//    }
-
 
 
 
